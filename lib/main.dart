@@ -36,47 +36,49 @@ class _MyHomePageState extends State<MyHomePage> {
 
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: MediaQuery.of(context).padding.top),
-            Text("This App collects user input and display it on the screen", style: TextStyle(
-              fontSize: 34
-            )),
-            SizedBox(height: 10),
-            Text('Enter anything in the input field below, then click the show content button to display what is in the input field', style: TextStyle(
-              fontSize: 13
-            )),
-            SizedBox(height: 30),
-
-            Text(
-              'Whatever is in the input field will be displayed in the box below', style: TextStyle(
-                fontWeight: FontWeight.bold
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: MediaQuery.of(context).padding.top * 2),
+              Text("This App collects user input and display it on the screen", style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold
+              )),
+              SizedBox(height: 10),
+              Text('Enter anything in the input field below, then click the show content button to display what is in the input field', style: TextStyle(
+                fontSize: 13
+              )),
+              SizedBox(height: 30),
+        
+              Text(
+                'Whatever is in the input field will be displayed in the box below', style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.red, width: 0.5)
+              SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.red, width: 0.5)
+                ),
+                child: Text(
+                  '$text',
+                ),
               ),
-              child: Text(
-                '$text',
+              SizedBox(height: 40),
+              TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder()
+                ),
+                controller: textEditingController,
               ),
-            ),
-            SizedBox(height: 40),
-            TextFormField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder()
-              ),
-              controller: textEditingController,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(onPressed: () {
-              setState(() {
-                text = textEditingController.text;
-              });
-            }, child: Text("Show Content"))
-          ],
+              SizedBox(height: 20),
+              ElevatedButton(onPressed: () {
+                setState(() {
+                  text = textEditingController.text;
+                });
+              }, child: Text("Show Content"))
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
@@ -90,5 +92,4 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-C:/Users/toymaxcode/Documents/projects/apps/flutter/zuri_hng_tasks/task_1/build/web
+// C:/Users/toymaxcode/Documents/projects/apps/flutter/zuri_hng_tasks/task_1/build/web
